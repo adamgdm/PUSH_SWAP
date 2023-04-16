@@ -38,6 +38,28 @@ void printLinkedList(stack* head)
     }
 }
 
+/*void ft_fill_stack(stack **a, int arg)
+{
+    stack *node;
+    stack *current;
+
+    node = (stack *)malloc(sizeof(stack));
+    node->value = arg;
+    node->next = NULL;
+    if (!(*a))
+    {
+        node->previous = NULL;
+        *a = node;
+    }
+    else
+    {
+        current = *a;
+        while (current->next)
+            current = current->next;
+        node->previous = current;
+        current->next = node;
+    }
+}*/
 void ft_fill_stack(stack **a, int arg)
 {
     stack *node;
@@ -60,6 +82,7 @@ void ft_fill_stack(stack **a, int arg)
         current->next = node;
     }
 }
+
 
 stack *ft_create_the_stack(int argc, char *args)
 {

@@ -1,6 +1,6 @@
 #include "../pushswap.h"
 
-void ft_swap(stack **s)
+void ft_swap(stack **s, char c)
 {
     stack *a;
     int argc;
@@ -22,4 +22,5 @@ void ft_swap(stack **s)
             a->previous = (*s)->next;
         }
     }
+    printf("s%c\n", c);
 }

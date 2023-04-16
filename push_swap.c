@@ -3,7 +3,7 @@
 int main(int argc, char** argv)
 {
     stack *arguments;
-    stack *argument;
+    stack *b;
     int ac;
     char *args;
 
@@ -17,6 +17,8 @@ int main(int argc, char** argv)
         args = ft_join_arguments(argc, argv);
         ac = ft_arguments_count(args);
         arguments = ft_create_the_stack(ac, args);
-        ft_sort_stack(arguments);
+        if (!ft_check_sort(&arguments))
+            arguments = ft_sort_stack(&arguments, &b);
+        printLinkedList(arguments);
     }
 }

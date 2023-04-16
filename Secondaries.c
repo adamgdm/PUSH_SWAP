@@ -82,3 +82,44 @@ int *ft_get_values(char *str, int ac, int index, int i)
     }
     return list;
 }
+
+int ft_find_min(stack **s)
+{
+    stack *a;
+    int i;
+    int index;
+    int max;
+
+    i = 1;
+    a = (*s);
+    max = a->value;
+    index = i;
+    while (a->next)
+    {
+        a = a->next;
+        i++;
+        if (a->value < max)
+        {    
+            max = a->value;
+            index = i;
+        }
+    }
+    return (index);
+}
+
+int ft_check_sort(stack **a)
+{
+    stack *current;
+
+    if (!(*a)) 
+        return 1;
+    current = (*a);
+    while (current->next != NULL) 
+    {
+        if (current->value > current->next->value)
+            return 0;
+        current = current->next;
+    }
+    return 1;
+
+}

@@ -1,25 +1,23 @@
 #include "../pushswap.h"
 
-void ft_reverse_rotate(stack **s)
+void ft_reverse_rotate(stack **s, char c)
 {
     stack *a;
     stack *last;
     int argc;
 
     argc = ft_count_linkedlist_elements(*s);
-    if (argc > 2)    
+    if (argc > 1)    
     {
-        a = *s;
         last = *s;
         while (last->next)
             last = last->next;
-        while (a->next)
-            a = a->next;
+        a = last->previous;
+        a->next = NULL;
         last->next = (*s);
-        (*s) = (*s)->next;
-        (*s)->previous = NULL;
-        last = last->next;
-        last->next = NULL;
-        last->previous = a;      
+        last->previous = NULL;
+        (*s)->previous = last;
+        (*s) = last;
     }
+    printf("rr%c\n", c);
 }

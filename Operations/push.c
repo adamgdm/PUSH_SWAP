@@ -1,22 +1,44 @@
 #include "../pushswap.h"
-
+/*
 void ft_push(stack **a, stack **b)
 {
-    stack *temp;
-    stack *pemt;
-
-    if ((*b))    
+    if (!(*a))
+        return ;
+    if !(**b)
     {
-        temp = (*a);
-        pemt = (*b);
-        if ((*b)->next)
+        if (*b)
+        *b = *a;
+        if ((*a)->next)
         {
-            (*b) = (*b)->next;
-            (*b)->previous = NULL;
-        }
-        pemt->next = (temp);
-        if (*a)
-            temp->previous = pemt;
-        (*a) = pemt;
+            (*a) = (*a)->next;
+            
+        } 
     }
+    
+
 }
+*/
+
+void ft_push(stack **a, stack **b, char c)
+{
+    stack *pointer;
+
+    if (!(*a))
+        return ;
+    else
+    {
+        pointer = (*a)->next;
+        if (pointer)
+            pointer->previous = NULL;
+        if (*b)
+        {
+            (*a)->next = (*b);
+            (*b)->previous = (*a);   
+        }
+        *b = *a;
+        *a = pointer;
+    }
+    printf("p%c\n", c);
+}
+
+// 4 56 2 114 1
